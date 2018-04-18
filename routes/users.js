@@ -6,22 +6,20 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-
-router.get('/users/:id(\\w+)', function(req, res, next) {
-  res.render('views/update');
+router.get('/:user(\[a-z]+)', function(req, res, next) {
+  res.render('update-user', {user : req.params.user});
 });
 
-
-router.put('/users/:id(\\w+)', function (req, res, next) {
-  res.send('The new name is ' + req.body.id);
+router.put('/:user(\[a-z]+)', function (req, res, next) {
+  res.send('The new name is ' + req.params.user);
 });
 
-router.get('/users/:id(\\d+)', function(req, res, next) {
-  res.render('views/delete');
+router.get('/:id(\\d+)', function(req, res, next) {
+  res.render('delete-user', {id: req.params.id });
 });
 
-router.delete('/users/:id(\\d+)', function (req, res, next) {
-  res.send('No more user with id ' + req.body.id);
+router.delete('/:id(\\d+)', function (req, res, next) {
+  res.send('No more user with id ' + req.params.id);
 });
 
 module.exports = router;

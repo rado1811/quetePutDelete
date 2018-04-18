@@ -1,4 +1,7 @@
 extends layout
 
-form(method='POST', action='/delete-user_method=DELETE')
-  button(type='submit') Supprimer
+block content
+
+    form(method='POST', action='/users/' + id + '?_method=DELETE')
+        input(type='text', name='id')
+        button(type='submit') Supprimer

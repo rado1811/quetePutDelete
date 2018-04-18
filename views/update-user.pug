@@ -1,4 +1,7 @@
 extends layout
 
-form(method='POST', action='update-user_method=PUT')
-  button(type='submit') Modifier
+block content
+
+    form(method='POST', action='/users/' + user + '?_method=PUT')
+        input(type='text', name='user')
+        button(type='submit') Modifier
